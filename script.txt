@@ -1,0 +1,6 @@
+#! /bin/bash
+i=556
+
+while [[ '$i' != 0 ]]; do
+        fcrackzip -u -D -p ./rockyou.txt ./zip_'$i'.zip > passwd.txt && unzip -P $(cat passwd.txt | awk '{print $5}') ./zip_'$i.zip && let i--
+done
